@@ -5,7 +5,7 @@ This guide documents how to manually configure a corporate IKEv2 VPN on Linux us
 ---
 
 ## 1. File Preparation
-Your certificates are stored in `~/vpn`. To use them with NetworkManager, they must be extracted from the PKCS#12 (.p12) container.
+Create a folder `mkdir ~/vpn` and move your .p12 file to ~/vpn folder. To use them with NetworkManager, they must be extracted from the PKCS#12 (.p12) container.
 
 1.  **Open your terminal:**
     `cd ~/vpn`
