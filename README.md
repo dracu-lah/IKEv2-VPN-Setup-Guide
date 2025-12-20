@@ -1,4 +1,4 @@
-# Corporate IKEv2 VPN Setup Guide (Linux)
+# IKEv2 VPN Setup Guide (Linux)
 
 This guide documents how to manually configure a corporate IKEv2 VPN on Linux using a `.p12` file. These steps use **NetworkManager** and **strongSwan** to mirror the security configurations required by IKEv2 servers.
 
