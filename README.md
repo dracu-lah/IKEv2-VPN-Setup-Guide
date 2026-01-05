@@ -6,9 +6,10 @@ A comprehensive guide for manually configuring a corporate IKEv2 VPN on Linux us
 
 ## 📋 Table of Contents
 1. [Prerequisites](#1-prerequisites)
-2. [File Preparation](#2-file-preparation)
-3. [Configuration Steps](#3-configuration-steps)
-4. [DNS Configuration](#4-dns-configuration)
+2. [Automated Setup](#2-automated-setup)
+3. [Manual File Preparation](#3-manual-file-preparation)
+4. [Manual Configuration Steps](#4-manual-configuration-steps)
+5. [DNS Configuration](#5-dns-configuration)
 
 ---
 
@@ -33,7 +34,24 @@ sudo dnf install NetworkManager-strongswan-gnome
 
 ---
 
-## 2. File Preparation
+## 2. Automated Setup
+For convenience, a script is provided to automate file extraction and connection setup.
+
+1. Ensure your `.p12` file is in the same directory as the script.
+2. Run the setup script:
+   ```bash
+   ./setup_vpn.sh
+   ```
+3. Follow the prompts to enter:
+   - **VPN Connection Name**
+   - **Gateway Address**
+   - **Internal DNS IP**
+
+The script will extract certificates to `~/vpn` and configure the NetworkManager connection with the correct security settings.
+
+---
+
+## 3. Manual File Preparation
 VPN credentials often come in a `.p12` (PKCS#12) container. These must be extracted for use with NetworkManager.
 
 1. Create a workspace:
@@ -55,7 +73,7 @@ VPN credentials often come in a `.p12` (PKCS#12) container. These must be extrac
 
 ---
 
-## 3. Configuration Steps
+## 4. Manual Configuration Steps
 
 ### Step A: Basic Connection Setup
 1. Open **Network Settings**, click the **+** (plus) icon, and select **IPsec/IKEv2 (strongswan)**.
@@ -99,7 +117,7 @@ To ensure compatibility with modern security standards (Windows-style GCM-AES), 
 
 ---
 
-## 4. DNS Configuration
+## 5. DNS Configuration
 If your VPN connects but internal hostnames do not resolve, ensure `systemd-resolved` is managing your DNS.
 
 ```bash
